@@ -3,6 +3,7 @@ class BankAccount
 
   def initialize(account)
     @account = account
+    @name = "Avi"
   end
 
 end
