@@ -1,3 +1,5 @@
+require 'pry'
+
 class Transfer
   attr_reader :sender, :receiver
   attr_accessor :amount, :status
@@ -29,7 +31,7 @@ class Transfer
   end
 
   def reverse_transfer
-    if self.status == "pending" && self.valid? == true && receiver.balance >= self.amount
+    if self.status == "pending" && self.valid? == true && receiver.balance <= self.amount
       self.sender.balance += self.amount
       self.receiver.balance -= self.amount
       self.status = "reversed"
